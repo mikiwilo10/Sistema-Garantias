@@ -1,0 +1,76 @@
+<div class="main-content">
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="card">
+
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Categoria</h4>
+                        <p class="card-category">Complete la informacion a continuacion</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="mt-3 col-md-4">
+
+                                <form class="example-form" [formGroup]="formularioCategoria" autocomplete="off">
+                                    <p>
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="Modelo Producto" type="text"
+                                                formControlName='nombre'>
+                                        </mat-form-field>
+                                        <span class="form-text text-danger" *ngIf="ValidarCampos('nombre')">
+                                            Este campo es obligatorio
+                                        </span>
+                                    </p>
+                                </form>
+                                <br>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <button mat-raised-button class="btn btn-danger pull-right"
+                                            (click)="crearCategoria()">
+                                            Agregar</button>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <button mat-raised-button class="btn btn-primary pull-right"
+                                            (click)="cancelar()">
+                                            Cancelar</button>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <button mat-raised-button class="btn btn-info" (click)="listarCategoria()"
+                                            color="primary">Listar</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br>
+                            <div class="col-md-6">
+                                <div class="">
+                                    <table class="table table-hover ">
+
+                                        <thead class="table-dark">
+                                            <th>
+                                                Nombre de la Categoria
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let item of categoria">
+                                                <td>
+                                                    {{item.nombre}}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

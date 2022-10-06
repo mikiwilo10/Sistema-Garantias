@@ -1,0 +1,98 @@
+<div class="main-content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Listar Productos</h4>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <a class="btn btn-success" routerLink="/producto/crear" style="margin-right:10px">
+                                    Añadir
+                                    Nuevo Producto</a>
+                            </div>
+
+                        </div>
+                        <br>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+
+                                    <th>
+                                        Nombre
+                                    </th>
+                                    <th>
+                                        Marca
+                                    </th>
+                                    <th>
+                                        Modelo
+                                    </th>
+                                    <th>
+                                        Origen
+                                    </th>
+                                    <th>
+                                        Stock
+                                    </th>
+                                    <th>
+                                        Proveedor
+                                    </th>
+                                    <th>
+                                        Correo Proveedor
+                                    </th>
+
+                                </thead>
+
+                                <tbody>
+                                    <tr *ngFor="let productos of listaproducto">
+                                        <td>
+                                            {{productos.nombre}}
+                                        </td>
+                                        <td>
+                                            {{productos.marca}}
+                                        </td>
+
+                                        <td>
+                                            {{productos.modelo}}
+                                        </td>
+                                        <td>
+                                            {{productos.origen}}
+                                        </td>
+                                        <td>
+                                            {{productos.stock}}
+                                        </td>
+                                        <td>
+                                            {{productos.proveedor.nombres}}
+                                        </td>
+                                        <td>
+                                            {{productos.proveedor.correo}}
+                                        </td>
+
+
+                                        <td>
+                                            <button routerLink="/producto/nuevaserie" class="btn btn-info"
+                                                (click)="obtenerProducto(productos)" color="primary">Agregar</button>
+
+                                        </td>
+                                        <td>
+                                            <button routerLink="/producto/detalleProductos" class="btn btn-info"
+                                                (click)="obtenerProducto(productos)" color="primary">Detalles</button>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

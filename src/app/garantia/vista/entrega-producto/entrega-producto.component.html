@@ -1,0 +1,90 @@
+<!-- <form>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form> -->
+<div class="row">
+    <div class="col">
+        <button mat-button mat-flat-button color="accent" style="display: block; width: 100%;"
+            (click)="guardarDetalle()">Guardar</button>
+    </div>
+
+    <div class="col">
+        <button mat-button mat-flat-button color="primary" style="display: block; width: 100%;"
+            (click)="cancelar()">Cancelar</button>
+    </div>
+</div>
+<hr>
+<br>
+
+ <!-- Formulario Cliente -->
+ <form [formGroup]="formularioCliente" autocomplete="off">
+
+    <div class="row">
+      <div class="col-md-6">
+        <label>Personas Recibe</label>
+        <div>
+          <mat-form-field class="example-full-width">
+            <input matInput (keyup.enter)="buscarCliente()" placeholder="C.I/RUC" maxlength="13"
+              minlength="10" formControlName="cedula">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="col-md-7">
+        <mat-form-field class="example-full-width">
+          <input matInput formControlName="correo" maxlength="60" placeholder="Correo Electronico"
+            type="email">
+        </mat-form-field>
+       
+      </div>
+
+
+      <div class="col-md-6">
+        <mat-form-field class="example-full-width">
+          <input matInput maxlength="20" placeholder="Nombre" type="text" formControlName="nombres">
+        </mat-form-field>
+       
+      </div>
+
+      <div class="col-md-6">
+        <mat-form-field class="example-full-width">
+          <input matInput maxlength="20" placeholder="Apellido" type="text" formControlName="apellidos">
+        </mat-form-field>
+      </div>
+
+
+      <div class="col-md-4">
+        <mat-form-field class="example-full-width">
+          <input matInput maxlength="20" placeholder="Telefono" type="text" formControlName="telefono">
+        </mat-form-field>
+      </div>
+
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupFile01">Upload</label>
+        <input type="file" (change)="handleUpload($event)" class="form-control" id="inputGroupFile01">
+    </div>
+
+    </div>
+  <!-- Fin Formulario Cliente -->
+
+   <mat-form-field>
+        <mat-label m-r-195>Descripcion</mat-label>
+        <input matInput mat-flat-button  placeholder="Descripcion" formControlName="Descripcion" >
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Seleccione Ubicacion</mat-label>
+        <mat-select formControlName="Ubicacion">
+            <mat-option *ngFor="let item of ubicaciones" value="{{item}}">{{item}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+</form>

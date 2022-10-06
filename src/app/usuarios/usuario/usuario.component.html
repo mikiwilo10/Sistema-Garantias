@@ -1,0 +1,123 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Ingresar Usuarios</h4>
+                        <p class="card-category">Complete la informacion a continuacion</p>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="container " style=" border-style: groove; width: 50%;">
+                            <form [formGroup]="formularioUsuario" autocomplete="off">
+
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput minlength="10" maxlength="13" placeholder="CI/Ruc:"
+                                                formControlName="cedula">
+                                        </mat-form-field>
+                                        <span class="form-text text-danger" *ngIf="validarCedula('cedula')">
+                                            La Cedula es Invalida.
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="Nombre:" formControlName="nombres">
+                                        </mat-form-field>
+                                        <span class="form-text text-danger" *ngIf="campoNoValido('nombres')">
+                                            Formato de Incorrecto
+                                        </span>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="Apellido:" formControlName="apellidos">
+                                        </mat-form-field>
+                                        <span class="form-text text-danger" *ngIf="campoNoValido('apellidos')">
+                                            Formato de Incorrecto
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="Direccion:" maxlength="50"
+                                                formControlName="direccion">
+                                        </mat-form-field>
+                                        <span class="form-text text-danger" *ngIf="campoNoValido('direccion')">
+                                            Campos Insuficientes
+                                        </span>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput maxlength="15" placeholder="Telefono:"
+                                                formControlName="telefono">
+                                        </mat-form-field>
+                                        <span class="form-text text-danger" *ngIf="campoNoValido('telefono')">
+                                            Campos Insuficientes
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-8">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput autocomplete="off" placeholder="Email:" type="email"
+                                                formControlName="correo">
+                                        </mat-form-field>
+                                        <span class="form-text text-danger" *ngIf="campoNoValido('correo')">
+                                            Formato Incorrecto del Correo
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-5">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput class="form-control" placeholder="Contraseña:" type="password" maxlength="50"
+                                                formControlName="password">
+                                        </mat-form-field>
+                                        <span class="form-text text-danger" *ngIf="campoNoValido('password')">
+                                            Debe Contener al menos 8 caracteres
+                                            minusculas mayúsculas
+                                            Números
+                                            Caracteres especiales.
+                                        </span>
+                                    </div>
+                                    <div class="form-group col-md-5">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput class="form-control" placeholder="Confirmar la contraseña:" type="password"
+                                                formControlName="password2">
+                                        </mat-form-field>
+                                        <span class="form-text text-danger" *ngIf="campoNoValido('password2')">
+                                            Las contraseñas deben de ser iguales
+                                        </span>
+
+                                    </div>
+                                    
+                                </div>
+                            </form>
+                        </div>
+                        <br>
+                        <div class="row align-items-center mb-3">
+                            <div class="col-md-4">
+                                <button mat-raised-button (click)="agregarusuario()"
+                                    class="btn btn-danger pull-right">GUARDAR</button>
+                            </div>
+                            <div class="col-md-4">
+                                <button mat-raised-button (click)="cancelar()" class="btn btn-primary pull-right">
+                                    Cancelar</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

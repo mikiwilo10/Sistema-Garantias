@@ -1,0 +1,175 @@
+<div class="main-content">
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Producto</h4>
+                        <p class="card-category">Complete la informacion a continuacion</p>
+                    </div>
+
+                    <div class="card-body">
+
+
+                        <!-- <div class="container"> -->
+                        <form autocomplete="off" [formGroup]="formularioProducto">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <!-- <label># Serie</label> -->
+
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="# Serie" type="text" formControlName="serie">
+                                    </mat-form-field>
+
+                                    <!-- <span class="form-text text-danger"
+                    *ngIf="ValidarCamposProducto('serie')">
+                   Este campo es obligatorio
+                   </span> -->
+                                </div>
+
+                                <!-- <input type="text" value="" name="cedula" xlength="10"> -->
+
+
+
+                                <div class="col-md-7">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput #nombre formControlName="nombre" placeholder="Nombre Producto"
+                                            type="text">
+                                    </mat-form-field>
+                                    <!-- <span class="form-text text-danger"
+                  *ngIf="ValidarCamposProducto('nombre')">
+                 Este campo es obligatorio
+                 </span> -->
+                                </div>
+
+
+                                <div class="col-md-7">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput #marca formControlName="marca" placeholder="Marca Producto"
+                                            type="text">
+                                    </mat-form-field>
+                                    <!-- <span class="form-text text-danger"
+                  *ngIf="ValidarCamposProducto('marca')">
+                 Este campo es obligatorio
+                 </span> -->
+                                </div>
+
+                                <div class="col-md-7">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput #txtapellidos formControlName="modelo"
+                                            placeholder="Modelo Producto" type="text">
+                                    </mat-form-field>
+                                    <!-- <span class="form-text text-danger"
+                  *ngIf="ValidarCamposProducto('modelo')">
+                 Este campo es obligatorio
+                 </span> -->
+                                </div>
+
+
+
+                            </div>
+                        </form>
+
+
+                        <form autocomplete="off" [formGroup]="formularioProductoDanado">
+
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <h4><span>Producto</span></h4>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col">
+
+                                            <!-- <label># Serie</label> -->
+                                            <mat-form-field class="example-full-width">
+                                                <input matInput placeholder="# Serie" type="text" #numeroserie
+                                                    formControlName="seried">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col">
+                                            <button mat-raised-button class="btn btn-primary" (click)="openDialog()">
+                                                Buscar Producto</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- <span class="form-text text-danger"
+                    *ngIf="ValidarCamposProducto('serie')">
+                   Este campo es obligatorio
+                   </span> -->
+                                </div>
+
+                                <!-- <input type="text" value="" name="cedula" xlength="10"> -->
+
+                                <div class="col-md-7">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput #nombre placeholder="Nombre Producto" type="text"
+                                            formControlName="nombred">
+                                    </mat-form-field>
+                                    <!-- <span class="form-text text-danger"
+                  *ngIf="ValidarCamposProducto('nombre')">
+                 Este campo es obligatorio
+                 </span> -->
+                                </div>
+
+
+                                <div class="col-md-7">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput #marca placeholder="Marca Producto" type="text"
+                                            formControlName="marcad">
+                                    </mat-form-field>
+                                    <!-- <span class="form-text text-danger"
+                  *ngIf="ValidarCamposProducto('marca')">
+                 Este campo es obligatorio
+                 </span> -->
+                                </div>
+
+                                <div class="col-md-7">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput #txtapellidos placeholder="Modelo Producto" type="text"
+                                            formControlName="modelod">
+                                    </mat-form-field>
+                                    <!-- <span class="form-text text-danger"
+                  *ngIf="ValidarCamposProducto('modelo')">
+                 Este campo es obligatorio
+                 </span> -->
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="row">
+                            <div class="col-md-7">
+                                <label>Observaciones</label>
+                                <mat-form-field class="example-full-width">
+                                    <textarea matInput required matInput></textarea>
+                                </mat-form-field>
+
+                            </div>
+                        </div>
+                        <!-- </div> -->
+                        <br>
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <button mat-raised-button class="btn btn-danger pull-right" (click)="cambioEquipo()">
+                                    Agregar</button>
+                            </div>
+
+                            <div class="col-md-4">
+                                <button mat-raised-button class="btn btn-primary pull-right">
+                                    Cancelar</button>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>

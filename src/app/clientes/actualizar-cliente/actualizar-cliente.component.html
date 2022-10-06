@@ -1,0 +1,82 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Ingresar Usuarios</h4>
+                        <p class="card-category">Complete la informacion a continuacion</p>
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div class="col-md-5">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput autocomplete="off" minlength="10" maxlength="10"
+                                       #txtcedula [(ngModel)]="cedula" placeholder="CI/Ruc:">
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput autocomplete="off" maxlength="60" #txtnombres [(ngModel)]="nombres" placeholder="Nombre:">
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput autocomplete="off" #txtapellidos maxlength="60"
+                                        [(ngModel)]="apellidos" placeholder="Apellido:">
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput autocomplete="off" maxlength="120" #txtdireccion
+                                        [(ngModel)]="direccion" placeholder="Direccion:">
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput autocomplete="off" maxlength="15" #txttelefono
+                                        [(ngModel)]="telefono" placeholder="Telefono:">
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput autocomplete="off" maxlength="120" #txtcorreo [(ngModel)]="correo" placeholder="Email:"
+                                        type="email">
+                                </mat-form-field>
+                            </div>
+
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <button mat-raised-button (click)="actualizarCliente()"
+                                    class="btn btn-danger pull-right">GUARDAR</button>
+                            </div>
+
+                            <br />
+                            <br />
+
+                            <div class="col-md-4">
+                                <button mat-raised-button
+                               
+                                routerLink='/cliente/listar'
+                                class="btn btn-primary pull-right">
+                                    Cancelar</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

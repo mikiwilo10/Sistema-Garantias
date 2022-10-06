@@ -1,0 +1,104 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Ingresar Usuarios</h4>
+                        <p class="card-category">Complete la informacion a continuacion</p>
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="containermk">
+                            <form autocomplete="off" [formGroup]="miFormulario">
+                                <div class="row justify-content-center">
+                                    <div class="col">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="CI/Ruc:" maxlength="10"
+                                                formControlName='cedula'>
+                                        </mat-form-field>
+                                        <span class="form-text text-danger" *ngIf="validarCedula('cedula')">
+                                            La Cedula es Invalida.
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput maxlength="60" placeholder="Nombre:"
+                                                formControlName="nombres">
+                                        </mat-form-field>
+                                        <span class="form-text text-danger" *ngIf="campoNoValido('nombres')">
+                                            Campos Insuficientes
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <div class="col">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput maxlength="60" placeholder="Apellido:"
+                                                formControlName="apellidos">
+                                        </mat-form-field>
+                                        <span class="form-text text-danger" *ngIf="campoNoValido('apellidos')">
+                                            Campos Insuficientes
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput maxlength="120" placeholder="Direccion:"
+                                                formControlName='direccion'>
+                                        </mat-form-field>
+                                        <span class="form-text text-danger" *ngIf="campoNoValido('direccion')">
+                                            Campos Insuficientes
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <div class="col">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput maxlength="15" placeholder="Telefono:"
+                                                formControlName='telefono'>
+                                        </mat-form-field>
+                                        <span class="form-text text-danger" *ngIf="campoNoValido('telefono')">
+                                            Campos Insuficientes
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput maxlength="120" #txtcorreo placeholder="Email:" type="email"
+                                                formControlName='correo'>
+                                        </mat-form-field>
+                                        <span class="form-text text-danger" *ngIf="campoNoValido('correo')">
+                                            {{ emailErrorMsg }}
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </form>
+                            <br>
+                                <div class="row align-items-start">
+                                    <div class="col">
+                                        <button mat-raised-button (click)="crearCliente()"
+                                            class="btn btn-danger pull-right">GUARDAR</button>
+                                    </div>
+                                    <div class="col">
+                                        <button mat-raised-button (click)="cancelar()"
+                                            class="btn btn-primary pull-right">
+                                            Cancelar</button>
+                                    </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

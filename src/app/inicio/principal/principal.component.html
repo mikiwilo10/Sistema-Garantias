@@ -1,0 +1,96 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <button type="button" class="btn btn-primary btn-lg" (click)="imprimirDetalle()">Imprimir</button>
+        <br>
+        <br>
+
+        <div class="container miki" id="tabla-miki" style="border-style: groove;">
+
+            <div class="color">
+
+                <div class="row">
+                    <div class="col-3 text-center">
+                        <div class="logoholder">
+                            <img src="assets/img/LogoSiseecActual.png" style="width:100%; height:100%">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <p>
+                                <strong>Sistema de Seguridad Electrico & Comunicacion</strong>
+                                <br>
+                                Catambuco 1-35 y Ayancay
+                                <br>
+                                Cuenca - Ecuador
+                                <br>
+                            </p>
+
+                        </div>
+                        <div class="row">
+
+                            <p>
+                                <strong>Cliente:</strong><br>
+                                {{Cliente?.nombres}} {{Cliente?.apellidos}}<br>
+                                {{Cliente?.correo}}<br>
+                                {{Cliente?.telefono}}<br>
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="info">
+                            <p>
+                                <strong>Facebook: </strong>SISEEC<br>
+                                <strong> E-mail:</strong> sisecdt@gmail.com<br>
+                                <strong> Telefono:</strong> 0987689213 - 0985114767<br>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <br><br>
+                <div class="row ">
+                    <div class="col text-center">
+                        <h1>Sistema Garantias</h1>
+                    </div>
+                    <br>
+                </div>
+
+
+                <div class="row ">
+                    <div class="col">
+                        <h3>Detalles Garantias</h3>
+                    </div>
+                    <br>
+                </div>
+
+
+                <table class="table table-bordered" id="customers" style="border-style: groove;">
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha </th>
+                            <th scope="col">Ubicacion</th>
+                            <th scope="col">Descripcion</th>
+                            <th scope="col">Historial Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let detalle of detallesRecibos">
+                            <td>{{detalle.fecha | date}} </td>
+                            <td>{{detalle.ubicacion}}</td>
+                            <td>{{detalle.descripcion}}</td>
+                            <td>{{detalle.historialEstado.nombre}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--.row-->
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+</div>

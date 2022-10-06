@@ -1,0 +1,98 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Lista de Usuarios</h4>
+                        <p class="card-category">Usuarios registrados en el sistema</p>
+
+                    </div>
+                    <br />
+
+                    <div class="col-md-12">
+                        <a id="btn" class="btn btn-success" routerLink="/usuario/crear" style="margin-right:10px">
+                            Añadir Nuevo</a>
+                    </div>
+                   
+                    <br>
+                    <div class="col-md-6">
+                    
+
+                        <input type="text" class="form-control mb-2"  placeholder="Buscar Usuario" #txtSearch
+                        (keyup.enter)="ObetnerParametroPipe()" autocomplete="off" minlength="4" maxlength="10" size="22"
+                            placeholder="Buscar por Cedula">
+                    </div>
+
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        CEDULA
+                                    </th>
+                                    <th>
+                                        NOMBRE:
+                                    </th>
+                                    <th>
+                                        APELLIDO:
+                                    </th>
+                                    <th>
+                                        DIRECCION:
+                                    </th>
+                                    <th>
+                                        TELEFONO:
+                                    </th>
+                                    <th>
+                                        EMAIL:
+                                    </th>
+                                    <th>
+                                        ACCIONES:
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of UsuarioLista | filtroUsuarios:buscar">
+                                        <td>
+                                            {{ item.idUsuario}}
+                                        </td>
+                                        <td>
+                                            {{ item.cedula}}
+                                        </td>
+                                        <td>
+                                            {{ item.nombres}}
+                                        </td>
+                                        <td>
+                                            {{item.apellidos}}
+                                        </td>
+                                        <td>
+                                            {{item.direccion}}
+                                        </td>
+                                        <td>
+                                            {{item.telefono}}
+                                        </td>
+                                        <td>
+                                            {{item.correo}}
+                                        </td>
+                                        
+                                        <td>
+                                            <button type="butto" class="btn btn-info"
+                                                class="btn btn-info"
+                                                (click)="obtenerOrden(item)"
+                                                routerLink="/usuario/actualizar">Actualizar</button>
+                                        </td>
+                                       
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

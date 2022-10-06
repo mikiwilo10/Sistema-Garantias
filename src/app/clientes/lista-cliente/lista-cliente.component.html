@@ -1,0 +1,93 @@
+<div class="main-content">
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Clientes</h4>
+
+                    </div>
+
+                    <div class="card-body">
+                        <div>
+                            <a class="btn btn-success" routerLink="/cliente/nuevo" style="margin-right:10px">
+
+                                Nuevo Cliente</a>
+                            <br>
+                            <input type="text" class="form-control mb-2" placeholder="Buscar por Cedula"
+                                (keyup.enter)="ObetnerParametroPipe()" #txtSearch />
+
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+
+                                    <th>
+                                        Cedula
+                                    </th>
+                                    <th>
+                                        Nombres
+                                    </th>
+                                    <th>
+                                        Apellidos
+                                    </th>
+                                    <th>
+                                        Correo
+                                    </th>
+                                    <th>
+                                        Direccion
+                                    </th>
+                                    <th>
+                                        Telefono
+                                    </th>
+
+                                    <th>
+                                        Accion
+                                    </th>
+
+                                </thead>
+                                <!-- filtroOrden:search -->
+                                <tbody>
+                                    <tr *ngFor="let item of Clientes | filtroCliente :buscar">
+                                        <td>
+                                            {{item.cedula}}
+
+                                        </td>
+
+                                        <td>
+                                            {{item?.nombres}}
+
+                                        </td>
+                                        <td>
+                                            {{item?.apellidos}}
+                                        </td>
+                                        <td>
+                                            {{item?.correo}}
+                                        </td>
+                                        <td>
+                                            {{item.direccion}}
+                                        </td>
+                                        <td>
+                                            {{item?.telefono}}
+                                        </td>
+
+                                        <td>
+                                            <button routerLink="/cliente/actualizar" class="btn btn-info"
+                                                (click)="obtenerCliente(item)" color="primary">Actualizar</button>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

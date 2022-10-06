@@ -1,0 +1,25 @@
+
+<div class="wrapper">
+    
+    <!-- barra lateral -->
+   
+    <div class="sidebar" data-color="danger" style=" background-color: papayawhip;" data-image="./assets/img/sidebar-1.jpg">
+        <app-sidebar></app-sidebar>
+        <div class="sidebar-background" style="background-image: url(./assets/img/sidebar-4.jpg)"></div>
+    </div>
+    
+    <div class="main-panel">
+
+        <!-- barra de busqueda e iconos q ue aparecen en la parte superior -->
+        <app-navbar></app-navbar>
+        
+        <!-- aparece lo que se llama a los demas componentes -->
+        <router-outlet></router-outlet>
+       
+        <!-- pie de pagina  -->
+        <app-footer></app-footer>
+
+    </div>
+   
+
+</div>

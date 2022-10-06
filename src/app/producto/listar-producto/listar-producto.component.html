@@ -1,0 +1,112 @@
+<!-- <div class="main-content">
+
+    <div class="container-fluid"> -->
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+
+            <div class="card-header card-header-danger">
+                <h4 class="card-title">Listar Productos</h4>
+
+            </div>
+
+            <div class="card-body">
+                <form [formGroup]="miFormulario">
+
+
+                  
+                    <div class="row">
+                        <div class="col-md-7">
+                            <label>Categoria </label>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Selecione una Categoria</mat-label>
+                                <mat-select (selectionChange)="filtrarBusquedaCategoria()" [formControl]="tipoBusqueda">
+                                    <mat-option *ngFor="let categorias of listaCategorias" value="{{categorias.nombre}}">{{categorias.nombre}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-3">
+                            <button mat-button mat-flat-button color="primary" style="display: block; width: 100%;"
+                                (click)="agregarProducto()">Agregar Producto</button>
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control mb-2" placeholder="Buscar Producto" #txtSearch />
+                    </div>
+
+                </form>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+
+                            <th>
+                                Nombre
+                            </th>
+                            <th>
+                                Marca
+                            </th>
+                            <th>
+                                Modelo
+                            </th>
+                            <th>
+                                Numero se Serie
+                            </th>
+                            <th>
+                                Proveedor
+                            </th>
+                            <th>
+                                Correo Proveedor
+                            </th>
+
+                            <th>
+                                Accion
+                            </th>
+
+                        </thead>
+                        <!--   -->
+                        <tbody>
+                            <tr *ngFor="let productos of listaproducto | filtroProducto:search">
+                                <td>
+                                    {{productos.producto.nombre}}
+                                </td>
+                                <td>
+                                    {{productos.producto.marca}}
+                                </td>
+                                <td>
+                                    {{productos.producto.modelo}}
+                                </td>
+                                <td>
+                                    {{productos.numeroSerie}}
+                                </td>
+                                <td>
+                                    {{productos.producto.proveedor.nombres}}
+                                </td>
+                                <td>
+                                    {{productos.producto.proveedor.correo}}
+                                </td>
+
+
+                                <td>
+                                    <button class="btn btn-info" (click)="obtenerOrden(productos)"
+                                        color="primary">Agregar</button>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col">
+    <button mat-button mat-flat-button color="accent" style="display: block; width: 100%;"
+        (click)="cancelar()">Cancelar</button>
+</div>
+
+<!-- </div>
+</div> -->

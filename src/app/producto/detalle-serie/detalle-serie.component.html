@@ -1,0 +1,87 @@
+<div class="main-content">
+    <div class="container-fluid">
+
+        <div class="card">
+            <div class="card-body">
+
+                <div class="row">
+
+                    <div class="col-5">
+
+                        <div class="mb-2 row">
+                            <label class="col-sm-3 col-form-label">Nombre</label>
+                            <div class="col-sm">
+                                <input type="text" readonly class="form-control-plaintext" value="{{Producto.producto.nombre}}">
+                            </div>
+                        </div>
+                        <div class="mb-2 row">
+                            <label class="col-sm-3 col-form-label">Modelo</label>
+                            <div class="col-sm">
+                                <input type="text" readonly class="form-control-plaintext" value="{{Producto.producto.modelo}}">
+                            </div>
+                        </div>
+                        <div class="mb-2 row">
+                            <label class="col-sm-3 col-form-label">Categoria</label>
+                            <div class="col-sm">
+                                <input type="text" readonly class="form-control-plaintext"
+                                    value="{{Producto.producto.categoria.nombre}}">
+                            </div>
+                        </div>
+                        <div class="mb-2 row">
+                            <label class="col-sm-3 col-form-label">Proveedor</label>
+                            <div class="col-sm">
+                                <input type="text" readonly class="form-control-plaintext"
+                                    value="{{Producto.producto.proveedor.nombres}}">
+                            </div>
+                        </div>
+                        <div class="mb-2 row">
+                            <label class="col-sm-3 col-form-label">Correo Proveedor</label>
+                            <div class="col-sm">
+                                <input type="text" readonly class="form-control-plaintext"
+                                    value="{{Producto.producto.proveedor.correo}}">
+                            </div>
+                        </div>
+                        <div class="mb-2 row">
+                            <label class="col-sm-3 col-form-label">Stock Actual</label>
+                            <div class="col-sm">
+                                <input type="text" readonly class="form-control-plaintext" value="{{Producto.producto.stock}}">
+                            </div>
+                        </div>
+                        <br>
+
+                    </div>
+                    <div class="col">
+                        <div class="col">
+                            <div class="row">
+
+                            </div>
+                            <div class="row mt-3">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Item</th>
+                                            <th scope="col">Serie Producto</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let serie of Producto.numeroSerieProducto; let i=index">
+                                            <th scope="row">{{i}}</th>
+                                            <td>{{serie.numeroSerie}}</td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+    </div>

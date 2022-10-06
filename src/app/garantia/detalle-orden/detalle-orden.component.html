@@ -1,0 +1,344 @@
+<div class="main-content">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Detalle Orden Trabajo</h4>
+
+          </div>
+
+          <div class="card-body">
+
+
+            <div class="row">
+
+              <div class="col-md-5">
+                <mat-card>
+                  <p>ID ORDEN {{id}}</p>
+                </mat-card>
+              </div>
+
+              <div class="col-md-3">
+                <button mat-raised-button routerLink='/orden/' class="btn btn-danger pull-right">
+                  Regresar</button>
+              </div>
+
+
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-12">
+                <label> CLiente</label>
+
+                <div class="col-md-6">
+                  <mat-card>
+                    <p>{{cliente?.cedula}}</p>
+                  </mat-card>
+                </div>
+
+                <div class="col-md-6">
+                  <label>Correo</label>
+                  <mat-card>
+                    <p>{{cliente?.correo}}</p>
+                  </mat-card>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Nombre</label>
+                    <mat-card>
+                      <p>{{cliente?.nombres}}</p>
+                    </mat-card>
+                  </div>
+                  <div class="col-md-6">
+                    <label>Apellido</label>
+                    <mat-card>
+                      <p>{{cliente?.apellidos}}</p>
+                    </mat-card>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <label>Direccion</label>
+                    <mat-card>
+                      <p>{{cliente?.direccion}}</p>
+                    </mat-card>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <label>Telefono</label>
+                    <mat-card>
+                      <p>{{cliente?.telefono}}</p>
+                    </mat-card>
+                  </div>
+                </div>
+                <br>
+                <br>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <label>Nombre Equipo</label>
+                    <mat-card>
+                      <p>{{ordenDetalle?.nombreEquipo}}</p>
+                    </mat-card>
+                  </div>
+
+                  <div class="col-md-12">
+                    <label>Numero Serie</label>
+                    <mat-card>
+                      <p>{{ordenDetalle?.numeroSerie}}</p>
+                    </mat-card>
+                  </div>
+
+                  <div class="col-md-4">
+                    <label>Modelo</label>
+                    <mat-card>
+                      <p>{{ordenDetalle?.modelo}}</p>
+                    </mat-card>
+                  </div>
+
+                  <div class="col-md-4">
+                    <label>Marca</label>
+                    <mat-card>
+                      <p>{{ordenDetalle?.marca}}</p>
+                    </mat-card>
+                  </div>
+
+                  <div class="col-md-4">
+
+                    <label>Año Garantia</label>
+                    <mat-card>
+                      <p>{{ordenDetalle?.aniosGarantia}}</p>
+                    </mat-card>
+                  </div>
+                </div>
+
+              </div>
+
+
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <label>Observaciones</label>
+
+                <mat-card>
+                  <mat-card-content>
+                    <p>{{ordenDetalle?.observacionesEquipo}}</p>
+                  </mat-card-content>
+
+                </mat-card>
+
+              </div>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="row">
+              <div class="col-md-12">
+                <label>Facturacion</label>
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <label>Numero Factura</label>
+                    <mat-card>
+                      <p>{{ordenDetalle?.numeroFactura}}</p>
+                    </mat-card>
+                  </div>
+
+                  <div class="col-md-4">
+                    <label>Fecha Factura</label>
+                    <mat-card>
+                      <p>{{ordenDetalle?.fechaFactura}}</p>
+                    </mat-card>
+                  </div>
+                  <div class="col-md-4">
+                    <label>Monto Factura</label>
+                    <mat-card>
+                      <p>{{ordenDetalle?.montoFactura}}</p>
+                    </mat-card>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br>
+            <div class="row">
+              <div class="col-md-4">
+                <label>Garantia </label>
+                <mat-card>
+                  <p>{{ordenDetalle?.tipoGarantia}}</p>
+                </mat-card>
+              </div>
+
+            </div>
+            <br>
+            <br>
+            <div class="row">
+              <div class="col-md-12">
+                <label>Proveedor</label>
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <label>Cedula/Ruc</label>
+                    <mat-card>
+                      <p>{{ordenDetalle?.proveedor.cedula}}</p>
+                    </mat-card>
+                  </div>
+                  <div class="col-md-4">
+                    <label>Nombre</label>
+                    <mat-card>
+                      <p>{{ordenDetalle?.proveedor.nombres}}</p>
+                    </mat-card>
+                  </div>
+
+                  <div class="col-md-4">
+                    <label>Apellido</label>
+                    <mat-card>
+                      <p>{{ordenDetalle?.proveedor.apellidos}}</p>
+                    </mat-card>
+                  </div>
+
+                  <div class="col-md-4">
+                    <label>Telefono</label>
+                    <mat-card>
+                      <p>{{ordenDetalle?.proveedor.telefono}}</p>
+                    </mat-card>
+                  </div>
+
+                  <div class="col-md-4">
+                    <label>Direccion</label>
+                    <mat-card>
+                      <p>{{ordenDetalle?.proveedor.direccion}}</p>
+                    </mat-card>
+                  </div>
+                  <div class="col-md-4">
+                    <label>Correo</label>
+                    <mat-card>
+                      <p>{{ordenDetalle?.proveedor.correo}}</p>
+                    </mat-card>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+
+          <div class="card-header card-header-danger">
+            <h4 class="card-title ">Detalles de trabajo</h4>
+          </div>
+          <br>
+          <div class="row">
+
+            <div class="col-sm-4 col-md-3" style="align-content: center;">
+
+              <button (click)="nuevoDetalle()" mat-fab color="primary" [disabled]="disablednuevoDetalle">
+                <mat-icon>note_add</mat-icon>
+              </button>
+              <label class="label success"> {{mensaje}} &nbsp; <br> <br> Estado : {{estado}}</label>
+            </div>
+
+            <div class="col-sm-4 col-md-3">
+              <button mat-raised-button routerLink='/orden/cambioProducto' class="btn btn-primary pull-right">
+                Cambio Producto</button>
+            </div>
+
+            <div class="col-sm-4 col-md-3">
+              <button mat-raised-button [disabled]="disabledEntregarProducto" (click)="EntregarProducto()"
+                class="btn btn-primary pull-right">
+                Entregar Producto</button>
+            </div>
+
+            <div class="col-sm-4 col-md-3">
+              <button mat-raised-button class="btn btn-primary pull-right" (click)="imprimir()">
+                Imprimir Detalles</button>
+            </div>
+
+          </div>
+          <!--  -->
+          <div class="row">
+            <app-principal [detallesRecibos]="detalles" [Cliente]="cliente" style="display: none;"></app-principal>
+          </div>
+
+          <br>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>
+                    Estado
+                  </th>
+
+                  <th>
+                    Fecha
+                  </th>
+                  <th>
+                    Descripcion
+                  </th>
+                  <th>
+                    Ubicacion
+                  </th>
+                  <th>
+                    Imagen
+                  </th>
+
+
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of detalles">
+                    <td>
+                      {{item.historialEstado.nombre}}
+                    </td>
+                    <td>
+                      {{item?.fecha | date:'shortDate'}}
+
+                    </td>
+
+                    <td>
+                      {{item?.descripcion}}
+
+                    </td>
+
+                    <td>
+                      {{item?.ubicacion}}
+                    </td>
+                    <td>
+                      <!-- [src]="item.pictureUrl ? item.pictureUrl : 'assets/img/logo.png'" -->
+
+                      <!-- <img [src]="item.imagen" width="200px" height="200px" alt="" /> -->
+
+
+                      <img [src]="item.imagen!= null ? item.imagen : '../../assets/img/sinimagen.jpg' " width="200px"
+                        height="200px">
+
+                    </td>
+
+
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

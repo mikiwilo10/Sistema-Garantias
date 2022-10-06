@@ -1,0 +1,257 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <button type="button" class="btn btn-primary btn-lg" (click)="imprimirDetalle()">Imprimir</button>
+        <br>
+
+        <div class="container miki" id="tabla-miki" style="border-style: groove;">
+            <div class="color">
+
+                <div class="row">
+                    <div class="col-3 text-center">
+                        <div class="logoholder">
+                            <img src="assets/img/LogoSiseecActual.png" style="width:100%; height:100%">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <p>
+                                <strong>Sistema de Seguridad Electrico & Comunicacion</strong>
+                                <br>
+                                Catambuco 1-35 y Ayancay
+                                <br>
+                                Cuenca - Ecuador
+                                <br>
+                            </p>
+
+                        </div>
+                        <div class="row">
+
+                            <p>
+                                <strong>Cliente:</strong><br>
+                                {{cliente.cliente.nombres}} {{cliente.cliente.apellidos}}<br>
+                                {{cliente.cliente.correo}}<br>
+                                {{cliente.cliente.telefono}}<br>
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="info" text-center>
+                            <p>
+                                <strong>Facebook: </strong>SISEEC<br>
+                                <strong> E-mail:</strong> sisecdt@gmail.com<br>
+                                <strong> Telefono:</strong> 0987689213 - 0985114767<br>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+                <div class="row ">
+                    <div class="col text-center">
+                        <h1>Sistema Garantias</h1>
+                    </div>
+                    <br>
+                </div>
+
+
+                <div class="row ">
+                    <div class="col">
+                        <h3><strong>Orden Garantia</strong></h3>
+                    </div>
+                    <br>
+                </div>
+                <!-- Orden -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <!-- Cliente -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label><strong>Cliente</strong></label>
+                                        <div class="row">
+                                            <div class="col">
+                                                <label> Cliente:</label>
+                                                <input class="input text-center " type="text" 
+                                                    value="{{cliente.cliente.cedula}}">
+                                            </div>
+                                            <div class="col">
+                                                <label>Correo:</label>
+                                                <input class="input text-center" type="text" 
+                                                    value="{{cliente.cliente.correo}}">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <label>Nombre:</label>
+                                                <input class="input text-center" type="text" 
+                                                    value="{{cliente.cliente.nombres}}">
+                                            </div>
+
+                                            <div class="col">
+                                                <label>Apellido:</label>
+                                                <input class="input text-center" type="text" 
+                                                    value="{{cliente.cliente.apellidos}}">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <label>Direccion:</label>
+                                                <input class="input text-center" type="text" 
+                                                    value="{{cliente.cliente.direccion}}">
+                                            </div>
+                                            <div class="col">
+                                                <label>Telefono:</label>
+                                                <input class="input text-center" type="text" 
+                                                    value="{{cliente.cliente.telefono}}">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- Fin Cliente -->
+                                <br>
+                                <!-- Equipo -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label><strong>Equipo</strong></label>
+                                        <div class="row">
+                                            <div class="col">
+                                                <label>Nombre Equipo</label>
+                                                <input class="input text-center" type="text" 
+                                                    value="{{cliente.nombreEquipo}}">
+                                            </div>
+                                            <div class="col">
+                                                <label>Numero Serie</label>
+                                                <input class="input text-center" type="text" 
+                                                    value="{{cliente.numeroSerie}}">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <label>Modelo</label>
+                                                <input class="input text-center" type="text" 
+                                                    value="{{cliente.modelo}}">
+                                            </div>
+                                            <div class="col">
+                                                <label>Marca</label>
+                                                <input class="input text-center" type="text" 
+                                                    value="{{cliente.marca}}">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <label>Año Garantia</label>
+                                                <input class="input text-center" type="text" 
+                                                    value="{{cliente.aniosGarantia}}">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <label>Observaciones</label>
+                                            <input class="input text-center" type="text" 
+                                                value="{{cliente.observacionesEquipo}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- fin  Equipo -->
+                                <br><br>
+
+                                <!-- Factura -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label><strong>Facturacion</strong></label>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col">
+                                                <label>Numero Factura</label>
+                                                <input class="input text-center" type="text" 
+                                                    value="{{cliente.numeroFactura}}">
+                                            </div>
+
+                                            <div class="col">
+                                                <label>Fecha Factura</label>
+                                                <input class="input text-center" type="text" 
+                                                    value="{{cliente.fechaFactura |date}}">
+                                            </div>
+                                            <div class="col">
+                                                <label>Monto Factura</label>
+                                                <input class="input text-center" type="text" 
+                                                    value="$ {{cliente.montoFactura|number}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Fin  Factura -->
+
+                                <br>
+                                <!--Proveedor -->
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label><strong>Proveedor</strong></label>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <label>Cedula/Ruc</label>
+                                                <input class="input text-center" type="text" 
+                                                    value="{{cliente.proveedor.cedula}}">
+                                            </div>
+                                            <div class="col">
+                                                <label>Correo</label>
+                                                <input class="input text-center" type="text" 
+                                                    value="{{cliente.proveedor.correo}}">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <label>Nombre</label>
+                                                <input class="input text-center" type="text" 
+                                                    value="{{cliente.proveedor.nombres}}">
+                                            </div>
+
+                                            <div class="col">
+                                                <label>Apellido</label>
+                                                <input class="input text-center" type="text" 
+                                                    value="{{cliente.proveedor.apellidos}}">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+
+
+                                            <div class="col">
+                                                <label>Telefono</label>
+                                                <input class="input text-center" type="text" 
+                                                    value="{{cliente.proveedor.telefono}}">
+                                            </div>
+
+                                            <div class="col">
+                                                <label>Direccion</label>
+                                                <input class="input text-center" type="text" 
+                                                    value="{{cliente.proveedor.direccion}}">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!--Fin Proveedor -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fin Orden -->
+            </div>
+            <!--.row-->
+           
+        </div>
+    </div>
+</div>

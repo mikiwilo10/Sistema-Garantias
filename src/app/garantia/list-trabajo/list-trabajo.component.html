@@ -1,0 +1,164 @@
+<div class="main-content">
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Ordenes de trabajo</h4>
+
+                    </div>
+                    <br>
+
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <a class="btn btn-success" routerLink="/orden/crear" style="margin-right:10px">
+                                    Añadir
+                                    Nueva Orden</a>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label>Filtrar Estado </label>
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Busqueda</mat-label>
+                                    <mat-select (selectionChange)="filtrarBusqueda()" [formControl]="estadoBusqueda">
+                                        <mat-option *ngFor="let item of LugarGarantgia" value="{{item}}">{{item}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label>Tipo Orden </label>
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Busqueda</mat-label>
+                                    <mat-select (selectionChange)="filtrarBusquedaTipo()" [formControl]="tipoBusqueda">
+                                        <mat-option *ngFor="let item of tipoGarantgia" value="{{item}}">{{item}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                        </div>
+
+                        <div class="col">
+                            <input type="text" class="form-control mb-2" 
+                            placeholder="Buscar Orden | Nombre del Equipo ,Numero serie ,Cliente , Numero de Orden " 
+                            #txtSearch
+                            (keyup.enter)="ObetnerParametroPipe()" />
+                        </div>
+                        <!--  -->
+
+                        <br>
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        Numero Orden
+                                    </th>
+                                    <th>
+                                        #. Serie Producto
+                                    </th>
+                                    <th>
+                                        Fecha
+                                    </th>
+                                    <th>
+                                        Equipo
+                                    </th>
+                                    <th>
+                                        Cliente
+                                    </th>
+                                    <th>
+                                        Observacion
+                                    </th>
+                                    <th>
+                                        Estado
+                                    </th>
+
+
+                                    <th>
+                                        Accion
+                                    </th>
+
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of OrdenTrabajos | filtroOrden:search">
+
+                                        <td>
+                                            {{item?.numeroOrden}}
+
+                                        </td>
+
+                                        <td>
+                                            {{item?.numeroSerie}}
+
+                                        </td>
+                                        <td>
+                                            {{item?.fecha | date:'shortDate'}}
+                                        </td>
+                                        <td>
+                                            {{item?.nombreEquipo}}
+                                        </td>
+                                        <td>
+                                            {{item.cliente?.nombres}}
+                                        </td>
+                                        <td>
+                                            {{item?.observacionesEquipo}}
+                                        </td>
+                                        <td>
+                                            {{item?.estado}}
+                                        </td>
+                                        <td *ngIf="item?.estado ==='En proceso' ">
+                                            <button class="btn btn-warning border">
+                                            </button>
+                                        </td>
+
+                                        <td *ngIf="item?.estado ==='Garantia negado' ">
+                                            <button class="btn btn-danger border">
+                                            </button>
+                                        </td>
+
+                                        <td *ngIf="item?.estado ==='Finalizo' ">
+                                            <button class="btn btn-success border">
+                                            </button>
+                                        </td>
+                                        <td *ngIf="item?.estado ==='Entregado' ">
+                                            <button class="btn btn-dark border">
+                                            </button>
+                                        </td>
+                                        <td *ngIf="item?.estado ==='Cambio Producto' ">
+                                            <button class="btn btn-info border">
+                                            </button>
+                                        </td>
+
+                                        <td>
+                                            <button routerLink="/orden/detalle" class="btn btn-info"
+                                                (click)="obtenerOrden(item)" color="primary">Detalle</button>
+                                        </td>
+                                        <td>
+                                            <button routerLink="/orden/actualizar" class="btn btn-info"
+                                                (click)="obtenerOrden(item)" color="primary">Actualizar</button>
+
+                                        </td>
+                                        <td>
+                                            <app-imprimir-orden [cliente]="item" style="display: none;">
+                                            </app-imprimir-orden>
+                                            <button class="btn btn-info" (click)="ImprimirOrden()"
+                                                color="primary">Imprimir</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

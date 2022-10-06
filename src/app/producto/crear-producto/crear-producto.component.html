@@ -1,0 +1,328 @@
+<div class="main-content">
+  <div class="container-fluid">
+
+    <div class="row">
+
+      <div class="col-md-12">
+        <div class="card">
+
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Producto</h4>
+            <p class="card-category">Complete la informacion a continuacion</p>
+          </div>
+
+          <div class="card-body">
+
+            <div class="row">
+
+              <div class="col-5">
+                <form autocomplete="off" [formGroup]="formularioProducto">
+
+                  <div class="row">
+
+                    <div class="col-md-10">
+                      <mat-form-field class="example-full-width">
+                        <input matInput #nombre formControlName="nombre" placeholder="Nombre Producto" type="text">
+                      </mat-form-field>
+                      <span class="form-text text-danger" *ngIf="ValidarCamposProducto('nombre')">
+                        Este campo es obligatorio
+                      </span>
+                    </div>
+
+
+                    <div class="col-md-10">
+                      <mat-form-field class="example-full-width">
+                        <input matInput #marca formControlName="marca" placeholder="Marca Producto" type="text">
+                      </mat-form-field>
+                      <span class="form-text text-danger" *ngIf="ValidarCamposProducto('marca')">
+                        Este campo es obligatorio
+                      </span>
+                    </div>
+
+                    <div class="col-md-10">
+                      <mat-form-field class="example-full-width">
+                        <input matInput #txtapellidos formControlName="modelo" placeholder="Modelo Producto"
+                          type="text">
+                      </mat-form-field>
+                      <span class="form-text text-danger" *ngIf="ValidarCamposProducto('modelo')">
+                        Este campo es obligatorio
+                      </span>
+                    </div>
+
+                   
+
+                    <div class="col-md-10">
+                      <label>Origen </label>
+                      <mat-form-field appearance="fill">
+                        <mat-label>Selecione</mat-label>
+                        <mat-select formControlName="origen">
+                          <mat-option *ngFor="let item of origen" value={{item}}>{{item}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <span class="form-text text-danger" *ngIf="ValidarCamposProducto('origen')">
+                        Este campo es obligatorio
+                      </span>
+                    </div>
+
+
+                    <div class="col-md-10">
+                      <label>Categoria </label>
+                      <mat-form-field appearance="fill">
+                        <mat-label>Selecione</mat-label>
+                        <mat-select formControlName="categoria">
+                          <mat-option *ngFor="let item of listaCategorias" value="{{item.nombre}}">{{item.nombre}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <span class="form-text text-danger" *ngIf="ValidarCamposProducto('categoria')">
+                        Este campo es obligatorio
+                      </span>
+                    </div>
+
+                  </div>
+                </form>
+
+              </div>
+
+              <div class="col">
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <label>Proveedor</label>
+                    <!-- <label>Proveedor</label> -->
+                    <div class="row ">
+                      <div class="col">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01">Proveedor</label>
+                          </div>
+                          <select [(ngModel)]="proveedor" (change)="capturar()" class="custom-select">
+                            <option [ngValue]="prov" *ngFor="let prov of listaProveedor;let i = index">
+                              <ul class="list-group">
+                                <li class="list-group-item active"> {{ prov.cedula }}</li>
+                                <li class="list-group-item"> - {{prov.nombres | uppercase }} </li>
+                                <li class="list-group-item"> - {{ prov.direccion | uppercase}}</li>
+                              </ul>
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <label>Proveedor</label> -->
+                    <hr>
+                    <!-- Formulario Proveedor -->
+                    <form [formGroup]="formularioProveedor" autocomplete="off">
+                      <div class="row">
+
+                        <div class="col">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="C.I/RUC" formControlName="cedulap" disabled type="text">
+                          </mat-form-field>
+                        </div>
+                        <div class="col">
+                          <mat-form-field class="example-full-width">
+                            <input matInput maxlength="60" formControlName="correop" placeholder="Correo" type="text">
+                          </mat-form-field>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col">
+                          <mat-form-field class="example-full-width">
+                            <input matInput formControlName='nombresp' placeholder="Nombre" type="text">
+                          </mat-form-field>
+                        </div>
+
+                        <div class="col">
+                          <mat-form-field disabled class="example-full-width">
+                            <input matInput formControlName="apellidosp" placeholder="Apellido" type="text">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <mat-form-field class="example-full-width">
+                            <input matInput maxlength="10" formControlName="telefonop" placeholder="Telefono"
+                              type="text">
+                          </mat-form-field>
+                        </div>
+
+                        <div class="col">
+                          <mat-form-field class="example-full-width">
+                            <input matInput formControlName="direccionp" maxlength="20" placeholder="Direccion"
+                              type="text">
+                          </mat-form-field>
+                        </div>
+
+
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <!-- fin Formulario Proveedor -->
+
+
+              </div>
+            </div>
+            <hr>
+            <br>
+            <br>
+
+            <div class="row">
+              <div class="col">
+                <div class="row">
+                  
+                  <div class="col-3">
+                        <div class="row">
+                          <mat-form-field class="example-full-width">
+                            <input matInput disabled placeholder="Cantidad #" [(ngModel)]="cantidad" type="text" >
+                          </mat-form-field>
+                        </div>
+                        <div class="row">
+                          <button type="button " class="btn btn-primary" (click)="agregarCantidadProducto()">Nueva Serie</button>
+                        </div>
+                  </div>
+                  <div class="col">
+                    <label for="exampleFormControlInput1" class="form-label">Numero Serie</label>
+                    <input type="text"  (keyup.enter)="agregarCantidadProducto()" class="form-control border border-primary" [formControl]="formularioProducto.controls.serie" id="exampleFormControlInput1"
+                      placeholder="#AA2323">
+                    <br>
+                  
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Serie Producto</th>
+                        <th scope="col">Eliminar</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let serie of listaSeries; let i=index">
+                        <th scope="row">{{i}}</th>
+                        <td>{{serie.numeroSerie}}</td>
+                        <td><button type="button" class="btn btn-danger"
+                            (click)="eliminarCantidadProducto(serie)">
+                            Eliminar</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              
+              <div class="col">
+                <div class="row">
+                  <div class="col-md-4">
+                    <button mat-raised-button class="btn btn-danger pull-right" (click)="crear()">
+                      Agregar</button>
+                  </div>
+    
+                  <div class="col-md-4">
+                    <button mat-raised-button class="btn btn-primary pull-right"
+                    (click)="cancelar()">
+                      Cancelar</button>
+                  </div>
+                </div>
+              </div>
+              
+
+            <!--        <form autocomplete="off" [formGroup]="formularioProveedor">
+ 
+              <div class="row">
+
+                <div class="col-md-12">
+                  <label>Proveedor</label>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <mat-form-field class="example-full-width">
+                        <input matInput 
+                        #txtpcedula (keyup.enter)="buscarProveedor()"
+                        formControlName="cedula"
+                        placeholder="C.I/RUC" 
+                        type="text">
+                      </mat-form-field>
+                      <span class="form-text text-danger"
+                      *ngIf="ValidarCamposProveedor('cedula')">
+                      Este campo es obligatorio
+                      </span>
+                    </div>
+  
+                    <div class="col-md-4">
+                      <mat-form-field class="example-full-width">
+                        <input matInput 
+                        #txtpnombres
+                        formControlName="nombres"
+                        placeholder="Nombre" type="text">
+                      </mat-form-field>
+                      <span class="form-text text-danger"
+                      *ngIf="ValidarCamposProveedor('nombres')">
+                      Este campo es obligatorio
+                      </span>
+                    </div>
+                    <div class="col-md-4">
+                      <mat-form-field class="example-full-width">
+                        <input matInput  
+                        #txtpapellidos
+                        formControlName="apellidos"
+                        placeholder="Apellido" type="text">
+                      </mat-form-field>
+                      <span class="form-text text-danger"
+                      *ngIf="ValidarCamposProveedor('apellidos')">
+                      Este campo es obligatorio
+                      </span>
+                    </div>
+                    <div class="col-md-4">
+                      <mat-form-field class="example-full-width">
+                        <input matInput 
+                        #txtptelefono
+                        formControlName="telefono"
+                        placeholder="Telefono" type="text">
+                      </mat-form-field>
+                      <span class="form-text text-danger"
+                      *ngIf="ValidarCamposProveedor('telefono')">
+                      Este campo es obligatorio
+                      </span>
+                    </div>
+                    <div class="col-md-4">
+                      <mat-form-field class="example-full-width">
+                        <input matInput
+                        #txtpdireccion
+                        formControlName="direccion"
+                        placeholder="Direccion" type="text">
+                      </mat-form-field>
+                      <span class="form-text text-danger"
+                      *ngIf="ValidarCamposProveedor('direccion')">
+                      Este campo es obligatorio
+                      </span>
+                    </div>
+                    <div class="col-md-4">
+                      <mat-form-field class="example-full-width">
+                        <input matInput
+                        #txtpcorreo
+                        formControlName="correo"
+                        placeholder="Correo" type="text">
+                      </mat-form-field>
+                      <span class="form-text text-danger"
+                      *ngIf="ValidarCamposProveedor('correo')">
+                      Este campo es obligatorio
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+          </form> -->
+
+        
+
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>

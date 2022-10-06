@@ -1,0 +1,80 @@
+
+<form  autocomplete="off" [formGroup]="newPostForm" >
+  <mat-form-field>
+    <mat-label m-r-195>Descripcion</mat-label>
+    <input matInput mat-flat-button autocomplete="off" placeholder="Descripcion" formControlName="Descripcion">
+    <span class="form-text text-danger"
+    *ngIf="ValidarCampos('Descripcion')">
+   Este campo es obligatorio
+   </span>
+  </mat-form-field>
+<!-- 
+  <mat-form-field>
+    <mat-label>Ubicacion</mat-label>
+    <input matInput mat-flat-button autocomplete="off"  placeholder="Ubicacion" #txtUbicacion formControlName="Ubicacion">
+  </mat-form-field>
+   -->
+  <!-- <div class="col-md-7"> -->
+   
+    <mat-form-field >
+      <!-- <mat-label m-r-195>Ubicacion</mat-label> -->
+      <mat-label>-- Seleccione Ubicacion --</mat-label>
+      <mat-select formControlName="Ubicacion">
+        <!-- <mat-option value=""> -- Seleccione Ubicacion -- </mat-option> -->
+        <mat-option *ngFor="let item of ubicaciones" value="{{item}}">{{item}}</mat-option>
+      </mat-select>   
+      <span class="form-text text-danger"
+      *ngIf="ValidarCampos('Ubicacion')">Este campo es obligatorio
+      </span>
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label m-r-195>Estado de la Garantia</mat-label>
+      <!-- <mat-label>-- --</mat-label> -->
+      <mat-select formControlName="estado">
+        <!-- <mat-option value=""> -- Seleccione Ubicacion -- </mat-option> -->
+        <mat-option *ngFor="let item of estado" value="{{item.idHistorial}}">{{item.nombre}}</mat-option>
+      </mat-select>   
+      
+      <span class="form-text text-danger"
+      *ngIf="ValidarCampos('Ubicacion')">Este campo es obligatorio
+      </span>
+    </mat-form-field>
+
+  <!-- </div> -->
+  <hr>
+  <br>
+
+  <div class="row" >
+    <div class="col">
+      <h3>Elejir Imagen</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <input class="input-file" (change)="capturarFile($event)" type="file">
+    </div>
+    </div>
+    <div class="row">
+    <div class="preview-img" *ngIf="previsualizacion">
+      <!-- <button class="clear-image" type="button" (click)="clearImage()">Clear</button> -->
+      <img style="height: '400px';
+      width: '400px'," [src]="previsualizacion" alt="">
+    </div>
+  </div>
+  
+  <br>
+  <br>
+  <div class="row">
+    <div class="col">
+      <button mat-button mat-flat-button color="accent" style="display: block; width: 100%;"
+        (click)="guardarDetalle()">Guardar</button>
+    </div>
+
+    <div class="col">
+      <button mat-button mat-flat-button color="primary" style="display: block; width: 100%;" 
+      (click)="cancelar()">Cancelar</button>
+    </div>
+  </div>
+
+</form>

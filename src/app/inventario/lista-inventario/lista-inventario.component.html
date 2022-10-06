@@ -1,0 +1,112 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Tabla Inventario</h4>
+                        <p class="card-category"> Informacion del Inventario </p>
+
+                    </div>
+
+                    <div class="card-body">
+                      
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                       ID
+                                    </th>
+                                    <th>
+                                        Descripcion
+                                    </th>
+                                    <th>
+                                        Fecha
+                                    </th>
+                                    <th>
+                                        Movimiento
+                                    </th>
+                                    <th>
+                                        Tipo
+                                    </th>
+                                    <th>
+                                        Cantidad
+                                    </th>
+                                    <th>
+                                        Stock
+                                    </th>
+
+                                    <th>
+                                        #Serie Producto
+                                    </th>
+                                    <th>
+                                        Nombre Producto
+                                    </th>
+                                    <th>
+                                        Origen Producto
+                                    </th>
+                                    <th>
+                                        Cedula Proveedor
+                                    </th>
+                                    <th>
+                                        Nombre Proveedor
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let inventario of listainventario">
+                                        <td>
+                                            {{inventario.idInventario}}
+                                        </td>
+                                        <td>
+                                            {{inventario.decripcionProducto}}
+                                        </td>
+                                        <td>
+                                            {{inventario.fecha | date}}
+                                        </td>
+                                        <td>
+                                            {{inventario.movimiento}}
+                                        </td>
+                                        <td class="text-primary">
+                                            {{inventario.tipo}}
+                                        </td>
+
+                                        <td>
+                                            {{inventario.cantidad}}
+                                        </td>
+                                        <td>
+                                            {{inventario.producto.stock}}
+                                        </td>
+                                        <td>
+                                            {{inventario.producto.numeroSerie || null}} 
+                                        </td>
+                                        <td>
+                                            {{inventario.producto.nombre}}
+                                        </td>
+                                        <td>
+                                            {{inventario.producto.origen}}
+                                        </td>
+                                        <td>
+                                            {{inventario.producto.proveedor.cedula}}
+                                        </td>
+                                        <td>
+                                            {{inventario.producto.proveedor.nombres}}
+                                        </td>
+                                        <td>
+                                            <!-- <button type="button" class="btn btn-info" (click)="getinventario(inventario)"
+                                                routerLink="/inventario/actualizar">Actualizar</button> -->
+                                        </td>
+                                        <!-- <td>
+                                            <button type="button" class="btn btn-info">Eliminar</button>
+                                        </td> -->
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

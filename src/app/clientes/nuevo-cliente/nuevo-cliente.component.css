@@ -1,0 +1,14 @@
+.containermk{
+    width: 50%;
+    background:white;
+    border-radius: 10px;
+    overflow: hidden;
+    padding-top: 35px;
+    margin: 0px;
+    box-sizing: border-box;
+    padding-left: inherit;
+    padding-right: inherit;
+    position: relative;
+    left: 237px;
+    border-style: groove;
+}
